@@ -117,7 +117,7 @@
           max-width: 1100px;
           display: grid;
           gap: 16px;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          grid-template-columns: repeat(4, minmax(220px, 1fr));
           align-items: stretch;
         }
   
@@ -136,6 +136,19 @@
           transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
           position: relative;
           overflow: hidden;
+          height: 150px; /* uniform height */
+        }
+
+        @media (max-width: 1200px) {
+          .grid { grid-template-columns: repeat(3, minmax(220px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+          .grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+        }
+
+        @media (max-width: 480px) {
+          .grid { grid-template-columns: 1fr; }
         }
   
         .card:hover {
@@ -246,26 +259,19 @@
         </div>
     </header>
 
-    <main>
-        <div class="grid" role="navigation" aria-label="Systems list">
-            <a class="card" href="../IGPRentalSystem/index.html">
-                <span class="badge">Inventory</span>
-                <span class="title">IGP Rental System</span>
-                <span class="desc">Inventory and equipment rentals</span>
-                <span class="actions">
-                  <span class="small" aria-hidden="true">Open</span>
-                </span>
-              </a>
-  
-          <a class="card" href="../tracker/index.html">
-            <span class="badge">Utility</span>
-            <span class="title">DutyTracker</span>
-            <span class="desc">Duty logging and QR utilities</span>
+    <main class="container py-4">
+      <div class="mb-4">
+        <h2 class="h5 mb-3">Trackers</h2>
+        <div class="grid" role="navigation" aria-label="Trackers">
+          <a class="card" href="../IGPRentalSystem/index.html">
+            <span class="badge">Inventory</span>
+            <span class="title">IGP Rental System</span>
+            <span class="desc">Inventory and equipment rentals</span>
             <span class="actions">
               <span class="small" aria-hidden="true">Open</span>
             </span>
           </a>
-  
+
           <a class="card" href="../MerchandiseTracker/index.html">
             <span class="badge">Tracker</span>
             <span class="title">Merchandise Tracker</span>
@@ -274,7 +280,16 @@
               <span class="small" aria-hidden="true">Open</span>
             </span>
           </a>
-  
+
+          <a class="card" href="../tracker/index.html">
+            <span class="badge">Utility</span>
+            <span class="title">Duty Tracker</span>
+            <span class="desc">Duty logging and QR utilities</span>
+            <span class="actions">
+              <span class="small" aria-hidden="true">Open</span>
+            </span>
+          </a>
+
           <a class="card" href="../QR-Attendance/index.html">
             <span class="badge">Utility</span>
             <span class="title">Attendance</span>
@@ -283,7 +298,12 @@
               <span class="small" aria-hidden="true">Open</span>
             </span>
           </a>
-  
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h2 class="h5 mb-3">Web</h2>
+        <div class="grid" role="navigation" aria-label="Web">
           <a class="card" href="../merchandise/index.html">
             <span class="badge">Store</span>
             <span class="title">Merchandise</span>
@@ -302,7 +322,22 @@
             </span>
           </a>
         </div>
-      </main>
+      </div>
+
+      <div>
+        <h2 class="h5 mb-3">Minigames</h2>
+        <div class="grid" role="navigation" aria-label="Minigames">
+          <a class="card" href="../bingo/index.html">
+            <span class="badge">Game</span>
+            <span class="title">Bingo</span>
+            <span class="desc">Simple bingo minigame</span>
+            <span class="actions">
+              <span class="small" aria-hidden="true">Open</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </main>
     <!-- Checkout Modal -->
     <div class="modal fade" id="checkoutModal" tabindex="-1">
         <div class="modal-dialog">
